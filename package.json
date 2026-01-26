@@ -1,0 +1,13 @@
+{
+  "name": "stt-api",
+  "version": "1.0.0",
+  "description": "Serverless LLaMA 3.1 (8B) API using Hugging Face and Cloudflare Workers",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "author": "Yishu Goyal",
+  "license": "Apache-2.0",
+  "dependencies": {}
+}
