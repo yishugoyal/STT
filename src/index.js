@@ -1,6 +1,6 @@
 export default {
   async fetch(request, env) {
-    // ✅ CORS
+    
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -26,7 +26,7 @@ export default {
     }
 
     try {
-      // ✅ Read raw audio data (binary)
+      
       const audioBuffer = await request.arrayBuffer();
 
       if (!audioBuffer || audioBuffer.byteLength === 0) {
@@ -42,14 +42,14 @@ export default {
         );
       }
 
-      // ✅ Send audio to Hugging Face Whisper
+     
       const hfResponse = await fetch(
         "https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3",
         {
           method: "POST",
           headers: {
             Authorization: `Bearer ${env.HF_API_KEY}`,
-            "Content-Type": "audio/flac", // can also be audio/wav or audio/mpeg
+            "Content-Type": "audio/flac", 
           },
           body: audioBuffer,
         }
@@ -75,7 +75,7 @@ export default {
 
       const result = await hfResponse.json();
 
-      // ✅ Final response
+     
       return new Response(
         JSON.stringify({
           text: result.text || "No transcription found",
