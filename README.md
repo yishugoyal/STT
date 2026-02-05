@@ -1,52 +1,67 @@
-# 🦙 OpenAI whisper-large-v3 API
+# 🎙️ Whisper Large v3 – Speech-to-Text API
 
-A lightweight, **serverless API** for interacting with **OpenAI whisper-large-v3** via the **Hugging Face Inference API**, deployed on **Cloudflare Workers**. A Speech To Text Model directly integrate with hugging face. 
+A **lightweight, serverless Speech-to-Text (STT) API** powered by **OpenAI Whisper Large v3**, deployed on **Cloudflare Workers** and integrated with the **Hugging Face Inference API**.
 
-> Developed by [Yishu Goyal](https://yishu.vercel.app)
-> 🚀 Live Demo: [https://stt.yishugoyal.workers.dev/](https://stt.yishugoyal.workers.dev/?q=) 
+This API accepts **raw audio files** and returns accurate transcriptions in **JSON format**, making it ideal for real-time and scalable AI applications.
+
+> Developed by **Yishu Goyal**
+> 🌐 Live API: [https://stt.yishugoyal.workers.dev/](https://stt.yishugoyal.workers.dev/)
 
 ---
 
 ## 🌟 Features
 
-* ✅ Supports both `GET` and `POST` HTTP methods
-* 🧠 Integrates **OpenAI whisper-large-v3** model via Hugging Face
-* ⚡ Serverless, fast, and scalable using **Cloudflare Workers**
-* 🔐 Secure API key management via **environment variables**
-* 💬 Returns **JSON-formatted** responses with developer signature
-* 🧩 Robust error handling with clear messages
+* 🎧 **Speech-to-Text** using **Whisper Large v3**
+* ⚡ **Serverless & ultra-fast** (Cloudflare Workers)
+* 🔐 Secure **API key management** via environment variables
+* 📦 Accepts **raw audio bytes** (`wav`, `mp3`, `flac`)
+* 🌍 **CORS enabled** (browser & mobile friendly)
+* 🧠 Clean **JSON responses**
+* 🛡️ Robust error handling
 
 ---
 
 ## 📦 Project Structure
 
 ```
-llama3.1-api/
+whisper-stt-api/
 │
 ├── src/
-│   └── index.js                
-├── LICENSE             
-├── README.md           
-└── package.json        
+│   └── index.js        # Cloudflare Worker
+├── README.md
+├── package.json
+└── LICENSE
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 API Usage
 
-### 1. GET Request
+### Endpoint
 
 ```
-https://stt.yishugoyal.workers.dev/
+POST https://stt.yishugoyal.workers.dev/
 ```
 
-### 2. POST Request
+> ❗ Only `POST` requests are supported
+> ❗ Send **raw audio bytes**, not multipart/form-data
+
+---
+
+## 🎧 Example Requests
+
+### Using `curl`
 
 ```bash
 curl -X POST https://stt.yishugoyal.workers.dev/ \
   -H "Content-Type: audio/flac" \
   --data-binary "@sample.flac"
 ```
+
+---
+
+### Using Python
+
 ```python
 import requests
 
@@ -60,55 +75,87 @@ headers = {
 }
 
 response = requests.post(API_URL, data=audio_bytes, headers=headers)
-
 print(response.json())
 ```
 
-### 3. Sample Response
+---
+
+### Using JavaScript (Node.js)
+
+```js
+import fs from "fs";
+
+const audio = fs.readFileSync("audio.wav");
+
+const res = await fetch("https://stt.yishugoyal.workers.dev/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "audio/wav",
+  },
+  body: audio,
+});
+
+console.log(await res.json());
+```
+
+---
+
+## 📤 Sample Response
 
 ```json
 {
-  "reply": "Quantum computing uses qubits...",
-  "model":"Llama-3.1-8B",
+  "text": "Hello, this is a speech to text transcription.",
+  "model": "whisper-large-v3",
   "dev": "YishuGoyalCGC"
 }
 ```
 
 ---
 
-## 🛠️ Deployment
+## 🛠️ Deployment (Cloudflare Workers)
 
-1. **Install Wrangler CLI**
+### 1️⃣ Install Wrangler
 
 ```bash
 npm install -g wrangler
 ```
 
-2. **Login**
+### 2️⃣ Login
 
 ```bash
 wrangler login
 ```
 
-3. **Set Environment Variable**
+### 3️⃣ Set Hugging Face API Key
 
 ```bash
 wrangler secret put HF_API_KEY
 ```
 
-4. **Publish**
+### 4️⃣ Deploy
 
 ```bash
-npx wrangler publish
+wrangler publish
 ```
 
 ---
 
-## 🔒 Security Best Practices
+## 🔒 Security Notes
 
-* Never commit your **Hugging Face API key** to GitHub
-* Always use environment variables (`env.HF_API_KEY`)
-* License your code to protect your ownership
+* 🔑 Never commit API keys to GitHub
+* 🧪 Use `wrangler secret` for production secrets
+* 🚫 No audio files are stored on the server
+
+---
+
+## 💡 Use Cases
+
+* 📞 Call transcription & analysis
+* 🎧 Voice notes → text
+* 🤖 Voice input for LLM pipelines
+* 🛡️ Scam / fraud detection preprocessing
+* 📱 Mobile STT features
+* 🧪 AI & ML experiments
 
 ---
 
@@ -116,24 +163,28 @@ npx wrangler publish
 
 **All Rights Reserved © 2025 — Yishu Goyal**
 
-This project is the intellectual property of **Yishu Goyal**.
-Unauthorized copying, modification, distribution, or use is strictly prohibited.
+This repository and its contents are the exclusive intellectual property of **Yishu Goyal**.
+Unauthorized copying, modification, redistribution, or commercial use is strictly prohibited.
 
 ---
 
-## 🧑‍💻 Developer
-**Yishu Goyal**  
-🌐 Portfolio: [yishu.vercel.app](https://yishu.vercel.app)  
-💼 LinkedIn: [linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)  
-🐙 GitHub: [github.com/yishugoyal](https://github.com/yishugoyal)  
+## 👨‍💻 Developer
+
+**Yishu Goyal**
+🌐 Portfolio: [https://yishu.vercel.app](https://yishu.vercel.app)
+💼 LinkedIn: [https://linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)
+🐙 GitHub: [https://github.com/yishugoyal](https://github.com/yishugoyal)
 📧 Email: [yishugoyalbth@gmail.com](mailto:yishugoyalbth@gmail.com)
 
 ---
 
-## 💡 Use Cases
+## 🚀 What’s next?
 
-* Chatbots & AI assistants
-* Microservices backend for LLMs
-* Prototyping conversational AI tools
-* Educational / demo purposes
+If you want, I can also:
 
+* 🔁 Add **STT → LLaMA → Fraud Score** pipeline README
+* 📊 Add **API rate-limit & performance section**
+* 🧪 Add **Postman collection**
+* 📱 Add **Android / iOS usage examples**
+
+Just say the word 😄
