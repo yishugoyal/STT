@@ -170,9 +170,9 @@ Unauthorized copying, modification, distribution, or use is strictly prohibited.
 
 ## 🧑‍💻 Developer
 **Yishu Goyal**  
-🌐 Portfolio: [yishu.vercel.app](https://yishu.vercel.app)  
-💼 LinkedIn: [linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)  
-🐙 GitHub: [github.com/yishugoyal](https://github.com/yishugoyal)  
+🌐 Portfolio: [yishu.vercel.app](https://yishu.vercel.app)
+💼 LinkedIn: [linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)
+🐙 GitHub: [github.com/yishugoyal](https://github.com/yishugoyal)
 📧 Email: [yishugoyalbth@gmail.com](mailto:yishugoyalbth@gmail.com)
 
 ---
