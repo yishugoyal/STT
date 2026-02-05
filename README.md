@@ -163,20 +163,20 @@ wrangler publish
 
 **All Rights Reserved © 2025 — Yishu Goyal**
 
-This repository and its contents are the exclusive intellectual property of **Yishu Goyal**.
-Unauthorized copying, modification, redistribution, or commercial use is strictly prohibited.
+This project is the intellectual property of **Yishu Goyal**.
+Unauthorized copying, modification, distribution, or use is strictly prohibited.
 
 ---
 
-## 👨‍💻 Developer
-
-**Yishu Goyal**
-🌐 Portfolio: [https://yishu.vercel.app](https://yishu.vercel.app)
-💼 LinkedIn: [https://linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)
-🐙 GitHub: [https://github.com/yishugoyal](https://github.com/yishugoyal)
+## 🧑‍💻 Developer
+**Yishu Goyal**  
+🌐 Portfolio: [yishu.vercel.app](https://yishu.vercel.app)  
+💼 LinkedIn: [linkedin.com/in/yishugoyal](https://linkedin.com/in/yishugoyal)  
+🐙 GitHub: [github.com/yishugoyal](https://github.com/yishugoyal)  
 📧 Email: [yishugoyalbth@gmail.com](mailto:yishugoyalbth@gmail.com)
 
 ---
+
 
 ## 🚀 What’s next?
 
