@@ -17,7 +17,7 @@ This API accepts **raw audio files** and returns accurate transcriptions in **JS
 * 📦 Accepts **raw audio bytes** (`wav`, `mp3`, `flac`)
 * 🌍 **CORS enabled** (browser & mobile friendly)
 * 🧠 Clean **JSON responses**
-* 🛡️ Robust error handling
+* 🛡️ Robust error handlings
 
 ---
 
